@@ -2,7 +2,7 @@ import { Counter } from "../counter/counter"
 
 export const DishListItem = ({dish}) => {
     return (
-        <li key={dish.id}>
+        <li>
             <span>{dish.name} - {dish.price}$</span>
             <Counter />
         </li>
