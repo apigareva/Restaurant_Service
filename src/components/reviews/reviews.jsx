@@ -1,3 +1,5 @@
+import { ReviewForm } from "../reviewForm/reviewForm";
+
 export const Reviews = ({reviews}) => {
     return (
         <div>
@@ -9,6 +11,7 @@ export const Reviews = ({reviews}) => {
                     </div>
                 ))}
             </ul>
+            <ReviewForm />
         </div>
     );
 }
