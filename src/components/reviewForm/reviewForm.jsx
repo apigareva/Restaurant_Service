@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import { Counter } from "../counter/counter";
-import { useForm } from "./use-form";
+import { useForm } from "./useForm";
 
 export const ReviewForm = () => {
     const {
