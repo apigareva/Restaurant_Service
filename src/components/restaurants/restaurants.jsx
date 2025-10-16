@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { restaurants } from '../../restaurants_list.js';
+import { restaurants } from '../../constants/restaurants_list.js';
 import { Restaurant } from '../restaurant/restaurant.jsx';
 
 export const Restaurants = () => {
@@ -14,7 +14,7 @@ export const Restaurants = () => {
     return (
         <div>
             {restaurants?.map(({id, name}) => (
-                <button key={id} onClick={() => handleSetActiveRestaurant(id)}>
+                <button key={id} onClick={() => handleSetActiveRestaurant(id)} disabled={id == activeRestaurantId}>
                     {name}
                 </button>
             ))}

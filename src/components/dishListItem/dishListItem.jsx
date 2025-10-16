@@ -1,10 +1,10 @@
-import { Counter } from "../counter/counter"
+import { DishCounter } from "../dishCounter/dishCounter";
 
 export const DishListItem = ({dish}) => {
     return (
         <li>
             <span>{dish.name} - {dish.price}$</span>
-            <Counter />
+            <DishCounter />
         </li>
     )
 }
