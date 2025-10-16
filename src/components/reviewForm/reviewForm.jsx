@@ -5,8 +5,8 @@ import { useForm } from "./useForm";
 export const ReviewForm = () => {
     const {
         state, 
-        increment_Rating, 
-        decrement_Rating, 
+        incrementRating, 
+        decrementRating, 
         setName, 
         setText, 
         clearFrom
@@ -27,7 +27,7 @@ export const ReviewForm = () => {
             </div>
             <div>
                 <label>Rating</label>
-                <Counter value={rating} increment={increment_Rating} decrement={decrement_Rating} />
+                <Counter value={rating} increment={incrementRating} decrement={decrementRating} />
             </div>
             <button>Add review</button>
             <button onClick={clearFrom}>Clear</button>

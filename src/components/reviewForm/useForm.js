@@ -30,14 +30,14 @@ export const useForm = () => {
 
     const setName = (name) => dispatch({ type: SET_NAME_REVIEW_FORM, payload: name });
     const setText = (text) => dispatch({ type: SET_TEXT_REVIEW_FORM, payload: text });  
-    const increment_Rating = () => dispatch({ type: SET_RATING_REVIEW_FORM, payload: Math.min((state.rating + 1), MAX_RATING)});
-    const decrement_Rating = () => dispatch({ type: SET_RATING_REVIEW_FORM, payload: Math.max((state.rating - 1), MIN_RATING)});
+    const incrementRating = () => dispatch({ type: SET_RATING_REVIEW_FORM, payload: Math.min((state.rating + 1), MAX_RATING)});
+    const decrementRating = () => dispatch({ type: SET_RATING_REVIEW_FORM, payload: Math.max((state.rating - 1), MIN_RATING)});
     const clearFrom = () => dispatch({type: CLEAR_REVIEW_FORM});
 
     return {
         state, 
-        increment_Rating, 
-        decrement_Rating, 
+        incrementRating, 
+        decrementRating, 
         setName, 
         setText, 
         clearFrom
