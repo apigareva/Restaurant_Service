@@ -1,0 +1,32 @@
+.root {
+    font-family: Trebuchet MS, sans-serif;
+}
+
+.root h3 {
+    padding: 3px;
+    margin: 5px 0 10px 0;
+}
+
+.reviews {
+    list-style: none;
+    padding: 0;
+    border: 1px solid rgba(0,0,0, .2);
+    border-radius: 5px;
+}
+
+.review {
+    padding: 10px;
+    margin: 5px;
+}
+
+.root .review:nth-child(odd) {
+    background: GhostWhite;
+}
+
+.root .review:nth-child(even) {
+    background: snow;
+}
+
+.form {
+    
+}

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { restaurants } from '../../constants/restaurants_list.js';
 import { Restaurant } from '../restaurant/restaurant.jsx';
+import { TabButton } from '../tabButton/tabButton.jsx';
 
 export const Restaurants = () => {
     const [activeRestaurantId, setActiveRestaurant] = useState(restaurants[0].id);
@@ -14,9 +15,10 @@ export const Restaurants = () => {
     return (
         <div>
             {restaurants?.map(({id, name}) => (
-                <button key={id} onClick={() => handleSetActiveRestaurant(id)} disabled={id == activeRestaurantId}>
-                    {name}
-                </button>
+                <TabButton key={id} 
+                    name ={name} 
+                    onClick={() => handleSetActiveRestaurant(id)} 
+                    disabled={id == activeRestaurantId}/>
             ))}
             <Restaurant restaurant={activeRestaurant}/>
         </div>

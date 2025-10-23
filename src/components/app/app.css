@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    font-family: "Roboto Mono", serif;
+}
+
+h2 {
+    font-size: 28px;
+    padding: 5px;
+}
+
+h3 {
+    font-size: 23px;
+}
