@@ -5,7 +5,7 @@ import styles from './dishCounter.module.css'
 const MIN_DISH_COUNTER = 0;
 const MAX_DISH_COUNTER = 5;
 
-export const DishCounter = ({classname}) => {
+export const DishCounter = () => {
     const [value, setValue] = useState(0);
 
     const increment = () => setValue(Math.min((value + 1), MAX_DISH_COUNTER));

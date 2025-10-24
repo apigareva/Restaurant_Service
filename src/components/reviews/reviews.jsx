@@ -13,7 +13,7 @@ export const Reviews = ({reviews, className}) => {
                     </div>
                 ))}
             </ul>
-            <ReviewForm className={styles.form}/>
+            <ReviewForm />
         </div>
     );
 }
