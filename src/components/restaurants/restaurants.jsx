@@ -16,7 +16,7 @@ export const Restaurants = () => {
         <div>
             {restaurants?.map(({id, name}) => (
                 <TabButton key={id} 
-                    name ={name} 
+                    title ={name} 
                     onClick={() => handleSetActiveRestaurant(id)} 
                     disabled={id == activeRestaurantId}/>
             ))}

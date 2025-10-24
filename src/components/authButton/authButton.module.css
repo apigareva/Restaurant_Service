@@ -1,0 +1,12 @@
+.root {
+    display: flex;
+    justify-content: space-between;
+}
+
+.username {
+    font-size: 16px;
+    margin: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}

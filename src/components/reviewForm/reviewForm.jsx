@@ -3,6 +3,7 @@ import { Counter } from "../counter/counter";
 import { useForm } from "./useForm";
 import classNames from "classnames";
 import styles from './reviewForm.module.css'
+import { Button } from "../button/button";
 
 export const ReviewForm = () => {
     const {
@@ -32,8 +33,8 @@ export const ReviewForm = () => {
                 <label>Rating</label>
                 <Counter value={rating} increment={incrementRating} decrement={decrementRating} />
             </div>
-            <button className={styles.addBtn}>Add review</button>
-            <button className={styles.clearBtn} onClick={clearFrom}>Clear</button>
+            <Button title={'Add review'} size={400}/>
+            <Button title={'Clear'} size={400} onClick={clearFrom} />
         </form>
     )
 }
