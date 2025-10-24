@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { Counter } from "../counter/counter"
-import styles from './dishCounter.module.css'
 
 const MIN_DISH_COUNTER = 0;
 const MAX_DISH_COUNTER = 5;
@@ -16,7 +15,6 @@ export const DishCounter = () => {
             value={value} 
             increment={increment} 
             decrement={decrement} 
-            className={styles.root}
         />
     )
 }
