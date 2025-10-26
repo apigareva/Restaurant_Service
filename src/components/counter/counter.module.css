@@ -1,0 +1,12 @@
+.root {
+    font-size: 15px;
+}
+
+.button {
+    border-radius: 5px;
+    text-align: center;
+    color: black;
+    padding: 7px 10px;
+    margin: 5px;
+    background: SlateGray;
+}

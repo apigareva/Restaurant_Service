@@ -11,6 +11,10 @@ export const DishCounter = () => {
     const decrement = () => setValue(Math.max((value - 1), MIN_DISH_COUNTER));
 
     return (
-        <Counter value={value} increment={increment} decrement={decrement}/>
+        <Counter 
+            value={value} 
+            increment={increment} 
+            decrement={decrement} 
+        />
     )
 }

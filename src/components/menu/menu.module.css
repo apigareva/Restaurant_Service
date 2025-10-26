@@ -1,0 +1,28 @@
+.root {
+    font-family: Trebuchet MS, sans-serif;
+    margin: 10px 0 10px 0;
+}
+
+.root h3 {
+    padding: 3px;
+    margin: 5px 0 10px 0;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    border: 1px solid rgba(0,0,0, .2);
+    border-radius: 5px;
+}
+
+.root .dishItem {
+    padding: 10px;
+}
+
+.root .dishItem:nth-child(odd) {
+    background: GhostWhite;
+}
+
+.root .dishItem:nth-child(even) {
+    background: snow;
+}

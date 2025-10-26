@@ -1,12 +1,14 @@
 import { ReviewForm } from "../reviewForm/reviewForm";
+import styles from './reviews.module.css';
+import classNames from "classnames";
 
-export const Reviews = ({reviews}) => {
+export const Reviews = ({reviews, className}) => {
     return (
-        <div>
+        <div className={classNames(className, styles.root)}>
             <h3>Reviews</h3>
-            <ul>
+            <ul className={styles.reviews}>
                 {reviews?.map(({id, user, text}) => (
-                    <div key={id}>
+                    <div className={styles.review} key={id}>
                         <li>{user}: "{text}"</li>
                     </div>
                 ))}

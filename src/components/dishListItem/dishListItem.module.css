@@ -1,0 +1,14 @@
+.root {
+    margin: 5px;
+    padding: 5px;
+    border-bottom: 2px #404B51;
+    font-size: 17px;
+    line-height: 1;
+}
+
+.root span {
+    position: relative;
+    margin: 5px;
+    padding: 3px; 
+    color: #404B51;
+}
