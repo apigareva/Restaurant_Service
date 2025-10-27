@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { restaurants } from '../../constants/restaurants_list.js';
 import { Restaurant } from '../restaurant/restaurant.jsx';
-import { TabButton } from '../tabButton/tabButton.jsx';
+import { useSelector } from 'react-redux';
+import { selectRestaurantsIds } from '../../redux/entities/restaurants/slice.js';
+import { RestaurantTab } from '../restaurantTab/restaurantTab.jsx';
 
 export const Restaurants = () => {
-    const [activeRestaurantId, setActiveRestaurant] = useState(restaurants[0].id);
-    const activeRestaurant = restaurants.find(({id}) => id === activeRestaurantId);
+    const restaurantIds = useSelector(selectRestaurantsIds);
+    const [activeRestaurantId, setActiveRestaurant] = useState(restaurantIds[0]);
     const handleSetActiveRestaurant = (id) => {
         if (id === activeRestaurantId) return;
         setActiveRestaurant(id);
@@ -14,13 +15,15 @@ export const Restaurants = () => {
 
     return (
         <div>
-            {restaurants?.map(({id, name}) => (
-                <TabButton key={id} 
-                    title ={name} 
-                    onClick={() => handleSetActiveRestaurant(id)} 
-                    disabled={id == activeRestaurantId}/>
+            {restaurantIds?.map((id) => (
+                <RestaurantTab 
+                    key={id}
+                    id={id}
+                    disabled={id == activeRestaurantId}
+                    onClick={() => handleSetActiveRestaurant(id)}
+                />
             ))}
-            <Restaurant restaurant={activeRestaurant}/>
+            <Restaurant id={activeRestaurantId}/>
         </div>
     )
 }
