@@ -1,11 +1,5 @@
 .root {
     border-radius: 10px;
-    text-align: center;
-    color: whitesmoke;
-    padding: 20px 30px;
-    margin: 7px;
-    transition: .2s linear;
-    background: SlateGray;
 }
 
 .root:hover {
@@ -14,15 +8,9 @@
 }
 
 .root:disabled {
-	background-color: LightGray;
+	background-color: Gainsboro;
 	border-color: #eee;
 	color: #444;
 	cursor: not-allowed;
     box-shadow:none;
-}
-
-.title {
-    margin-bottom: 25px;
-    font-size: 20px;
-    line-height: 35px;
 }

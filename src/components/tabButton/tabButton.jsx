@@ -1,10 +1,14 @@
+import { Button } from '../button/button';
 import styles from './tabButton.module.css';
-import classNames from 'classnames';
 
-export const TabButton = ({name, onClick, disabled, className}) => {
+export const TabButton = ({title, onClick, disabled}) => {
     return (
-        <button className={classNames(className, styles.root)} onClick={onClick} disabled={disabled}>
-            <span className={styles.title}>{name}</span>
-        </button>
+        <Button 
+            className={styles.root}
+            title={title}
+            size={500}
+            disabled={disabled}
+            onClick={onClick}
+        />
     )
 }
