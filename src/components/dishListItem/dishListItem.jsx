@@ -16,7 +16,7 @@ export const DishListItem = ({id, className}) => {
             <span>{name}</span>
             <span> - </span>
             <span>{price}$</span>
-            {auth.isAuth && <DishCounter />}
+            {auth.isAuth && <DishCounter dishId={id}/>}
         </li>
     )
 }
