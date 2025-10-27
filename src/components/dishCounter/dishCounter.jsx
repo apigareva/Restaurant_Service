@@ -14,8 +14,6 @@ export const DishCounter = ({dishId}) => {
         dispatch(removeDishFromCart(dishId)),
     [dishId, dispatch]);
 
-    console.log('render' + value);
-
     return (
         <Counter 
             value={value} 
