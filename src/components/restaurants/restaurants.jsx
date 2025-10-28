@@ -3,6 +3,7 @@ import { Restaurant } from '../restaurant/restaurant.jsx';
 import { useSelector } from 'react-redux';
 import { selectRestaurantsIds } from '../../redux/entities/restaurants/slice.js';
 import { RestaurantTab } from '../restaurantTab/restaurantTab.jsx';
+import { Cart } from '../cart/cart.jsx';
 
 export const Restaurants = () => {
     const restaurantIds = useSelector(selectRestaurantsIds);
@@ -24,6 +25,7 @@ export const Restaurants = () => {
                 />
             ))}
             <Restaurant id={activeRestaurantId}/>
+            <Cart />
         </div>
     )
 }

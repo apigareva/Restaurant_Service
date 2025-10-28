@@ -18,4 +18,4 @@ export const dishesSlice = createSlice({
     }
 });
 
-export const { selectDisheIds, selectDishById} = dishesSlice.selectors;
+export const { selectDisheIds, selectDishById } = dishesSlice.selectors;
