@@ -16,7 +16,7 @@ export const Cart = () => {
         <div className={styles.root}>
             <h3>Cart</h3>
             <ul>
-                {isAuth && cartIds?.map((dishId) => 
+                {cartIds?.map((dishId) => 
                     <li key={dishId} className={styles.item}>
                         <CartItem dishId={dishId} />
                     </li>)}
