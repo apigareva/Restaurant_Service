@@ -1,0 +1,13 @@
+.root {
+    font-family: Trebuchet MS, sans-serif;
+    margin: 10px;
+    font-size: 17px;
+}
+
+.root ul {
+    margin: 5px;
+}
+
+.item {
+    margin: 3px 0 3px 0;
+}
