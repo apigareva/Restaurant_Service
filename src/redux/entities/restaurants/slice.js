@@ -14,8 +14,19 @@ export const restaurantsSlice = createSlice({
     initialState,
     selectors: {
         selectRestaurantsIds: restaurantsState => restaurantsState.ids,
-        selectRestaurantById: (restaurantsState, id) => restaurantsState.entities[id]
+        selectRestaurantById: (restaurantsState, id) => restaurantsState.entities[id],
+        selectMenuById: (restaurantsState, id) => {
+            const restaurant = restaurantsState.entities[id];
+            const {menu} = restaurant || [];
+            return menu;
+            
+        },
+        selectReviewsById: (restaurantsState, id) => {
+            const restaurant = restaurantsState.entities[id];
+            const {reviews} = restaurant || [];
+            return reviews;
+        }
     }
 });
 
-export const { selectRestaurantsIds, selectRestaurantById } = restaurantsSlice.selectors;
+export const { selectRestaurantsIds, selectRestaurantById, selectMenuById, selectReviewsById } = restaurantsSlice.selectors;
