@@ -16,7 +16,8 @@ export const cartSlice = createSlice({
             const amount = (state[payload] || 0) - 1;
             if (amount <= 0) delete state[payload];
             else state[payload] = amount;
-        }
+        },
+        clearCart: () => initialState
     }
 });
 
@@ -24,4 +25,4 @@ const selectCartSlice = state => state[cartSlice.name];
 export const selectCartItemsIds = createSelector([selectCartSlice], cartState => Object.keys(cartState));
 
 export const { selectAmountById } = cartSlice.selectors;
-export const { addDishToCart, removeDishFromCart } = cartSlice.actions;
+export const { addDishToCart, removeDishFromCart, clearCart } = cartSlice.actions;

@@ -1,11 +1,15 @@
-import { useSelector } from "react-redux"
-import { selectCartItemsIds } from "../../redux/entities/cart/slice";
+import { useDispatch, useSelector } from "react-redux"
+import { clearCart, selectCartItemsIds } from "../../redux/entities/cart/slice";
 import { CartItem } from "../cartItem/cartItem";
 import styles from './cart.module.css';
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { AuthContext } from "../authContext/authContext";
+import { Button } from "../button/button";
 
 export const Cart = () => {
+    const dispatch = useDispatch();
+    const handleClearCart = useCallback(() => dispatch(clearCart()), [dispatch]);
+
     const cartIds = useSelector(selectCartItemsIds);
     const {auth} = useContext(AuthContext);
     const {isAuth} = auth;
@@ -21,6 +25,7 @@ export const Cart = () => {
                         <CartItem dishId={dishId} />
                     </li>)}
             </ul>
+            <Button title={'Clear cart'} onClick={handleClearCart} size={400}/>
         </div>
     )
 }

@@ -1,30 +1,21 @@
-import { useState } from 'react';
-import { Restaurant } from '../restaurant/restaurant.jsx';
 import { useSelector } from 'react-redux';
 import { selectRestaurantsIds } from '../../redux/entities/restaurants/slice.js';
 import { RestaurantTab } from '../restaurantTab/restaurantTab.jsx';
+import { Outlet } from 'react-router';
 import { Cart } from '../cart/cart.jsx';
 
 export const Restaurants = () => {
-    const restaurantIds = useSelector(selectRestaurantsIds);
-    const [activeRestaurantId, setActiveRestaurant] = useState(restaurantIds[0]);
-    const handleSetActiveRestaurant = (id) => {
-        if (id === activeRestaurantId) return;
-        setActiveRestaurant(id);
-    };
-    
+    const restaurantIds = useSelector(selectRestaurantsIds);   
 
     return (
         <div>
             {restaurantIds?.map((id) => (
-                <RestaurantTab 
+                <RestaurantTab
                     key={id}
                     id={id}
-                    disabled={id == activeRestaurantId}
-                    onClick={() => handleSetActiveRestaurant(id)}
                 />
             ))}
-            <Restaurant id={activeRestaurantId}/>
+            <Outlet />
             <Cart />
         </div>
     )

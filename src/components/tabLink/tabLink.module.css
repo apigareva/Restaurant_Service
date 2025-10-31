@@ -1,0 +1,39 @@
+.root {
+    border-radius: 5px;
+    text-align: center;
+    margin: 7px;
+    transition: .2s linear;
+}
+
+.size500 {
+    font-size: 20px;
+    padding: 20px 30px;
+}
+
+.size400 {
+    font-size: 17px;
+    padding: 10px;
+}
+
+.size300 {
+    font-size: 14px;
+    padding: 7px 10px;
+}
+
+.dark {
+    color: whitesmoke;
+    background: DarkSlateGrey;
+}
+
+.light {
+    color: black;
+    background: LightSlateGrey;
+}
+
+.isActive {
+    background-color: Gainsboro;
+	border-color: #eee;
+	color: #444;
+	cursor: not-allowed;
+    box-shadow:none;
+}

@@ -6,8 +6,19 @@
 
 .root ul {
     margin: 5px;
+    border: 1px solid rgba(0,0,0, .2);
+    border-radius: 5px;
 }
 
 .item {
-    margin: 3px 0 3px 0;
+    margin: 5px;
+    padding: 10px;
+}
+
+.root .item:nth-child(odd) {
+    background: GhostWhite;
+}
+
+.root .item:nth-child(even) {
+    background: snow;
 }
