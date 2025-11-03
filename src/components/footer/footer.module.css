@@ -1,0 +1,12 @@
+.root {
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: LightSlateGrey;
+    text-align: center;
+    width: 100%;
+}
