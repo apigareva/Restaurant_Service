@@ -10,7 +10,7 @@ export const DefaultRestaurant = ({activeRestaurantId}) => {
     useEffect(() => {
         const restaurantId = restaurantIds[0];
         if (!activeRestaurantId) navigate(`${restaurantId}`);
-    }, [navigate]);
+    }, [restaurantIds, activeRestaurantId, navigate]);
 
     return (<div>Please, choose restaurant</div>)
 }
