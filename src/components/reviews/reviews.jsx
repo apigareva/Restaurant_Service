@@ -7,7 +7,7 @@ import { ReviewListItem } from "../reviewListItem/reviewListItem";
 import { useSelector } from "react-redux";
 import { selectReviewsById } from "../../redux/entities/restaurants/slice";
 
-export const Reviews = ({restaurantId, className}) => {
+export const Reviews = ({restaurantId, className, isLoading = false}) => {
     const {auth} = useContext(AuthContext);
     const reviews = useSelector(state => selectReviewsById(state, restaurantId));
 
@@ -19,6 +19,7 @@ export const Reviews = ({restaurantId, className}) => {
                     <ReviewListItem className={styles.review} key={id} id={id}/>
                 ))}
             </ul>
+            {isLoading && <div className={styles.isLoading} />}
             {auth.isAuth && <ReviewForm />}
         </div>
     );

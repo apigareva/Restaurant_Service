@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 export const DishListItem = ({id, className}) => {
     const dish = useSelector(state => selectDishById(state, id));
-    const {name} = dish;
+    const {name} = dish || '';
 
     return (
         <li className={classNames(className, styles.root)}>

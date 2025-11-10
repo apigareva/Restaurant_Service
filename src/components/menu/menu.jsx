@@ -4,7 +4,7 @@ import styles from './menu.module.css';
 import { useSelector } from "react-redux";
 import { selectMenuById } from "../../redux/entities/restaurants/slice";
 
-export const Menu = ({restaurantId, className}) => {
+export const Menu = ({restaurantId, className, isLoading = false}) => {
     const menu = useSelector(state => selectMenuById(state, restaurantId));
 
     return (
@@ -15,6 +15,7 @@ export const Menu = ({restaurantId, className}) => {
                     <DishListItem key={dishId} id={dishId} className={styles.dishItem}/>
                 ))}
             </ul>
+            {isLoading && <div className={styles.isLoading} />}
         </div>
     );
 }

@@ -1,20 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { normalizedRestaurants } from '../../../constants/normalized-data';
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
+import { getRestaurants } from "./getRestaurants";
+import { getRestaurant } from "./getRestaurant";
 
-const initialState = {
-    ids: normalizedRestaurants.map(restaurant => restaurant.id),
-    entities: normalizedRestaurants.reduce((acc, restaurant) => {
-        acc[restaurant.id] = restaurant;
-        return acc;
-    }, {})
-};
+const entityAdapter = createEntityAdapter();
 
 export const restaurantsSlice = createSlice({
     name: "restaurants",
-    initialState,
+    initialState: entityAdapter.getInitialState(),
     selectors: {
-        selectRestaurantsIds: restaurantsState => restaurantsState.ids,
-        selectRestaurantById: (restaurantsState, id) => restaurantsState.entities[id],
         selectMenuById: (restaurantsState, id) => {
             const restaurant = restaurantsState.entities[id];
             const {menu} = restaurant || [];
@@ -26,7 +19,19 @@ export const restaurantsSlice = createSlice({
             const {reviews} = restaurant || [];
             return reviews;
         }
-    }
+    },
+    extraReducers: (builder) => 
+        builder
+            .addCase(getRestaurants.fulfilled, (state, {payload}) => {
+                entityAdapter.setAll(state, payload);
+                state.requestStatus = 'fulfilled';
+            })
+            .addCase(getRestaurant.fulfilled, (state, {payload}) => {
+                entityAdapter.setOne(state, payload);
+            })
 });
 
-export const { selectRestaurantsIds, selectRestaurantById, selectMenuById, selectReviewsById } = restaurantsSlice.selectors;
+const selectRestaurantsSlice = state => state.restaurants;
+export const {selectById: selectRestaurantById, selectIds: selectRestaurantsIds, selectTotal: selectTotalRestaurants} = 
+    entityAdapter.getSelectors(selectRestaurantsSlice);
+export const { selectMenuById, selectReviewsById } = restaurantsSlice.selectors;
