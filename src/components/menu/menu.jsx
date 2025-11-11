@@ -3,6 +3,7 @@ import { DishListItem } from "../dishListItem/dishListItem"
 import styles from './menu.module.css';
 import { useSelector } from "react-redux";
 import { selectMenuById } from "../../redux/entities/restaurants/slice";
+import { Preloader } from "../preloader/preloader";
 
 export const Menu = ({restaurantId, className, isLoading = false}) => {
     const menu = useSelector(state => selectMenuById(state, restaurantId));
@@ -15,7 +16,7 @@ export const Menu = ({restaurantId, className, isLoading = false}) => {
                     <DishListItem key={dishId} id={dishId} className={styles.dishItem}/>
                 ))}
             </ul>
-            {isLoading && <div className={styles.isLoading} />}
+            {isLoading && <Preloader />}
         </div>
     );
 }
