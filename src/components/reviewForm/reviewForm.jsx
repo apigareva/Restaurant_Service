@@ -1,30 +1,33 @@
-import { useReducer } from "react";
 import { Counter } from "../counter/counter";
 import { useForm } from "./useForm";
 import classNames from "classnames";
 import styles from './reviewForm.module.css'
 import { Button } from "../button/button";
+import { useContext } from "react";
+import { AuthContext } from "../authContext/authContext";
 
-export const ReviewForm = () => {
+export const ReviewForm = ({onSubmit, isSubmitBtnDisabled, initialState }) => {
     const {
         className,
         state, 
         incrementRating, 
         decrementRating, 
-        setName, 
         setText, 
         clearFrom
-    } = useForm();
+    } = useForm(initialState);
 
-    const {name, text, rating} = state;
+    const { text, rating } = state;
+
+    const { auth } = useContext(AuthContext);
+
+    const handleFormSubmit = () => {
+        onSubmit({text, rating, userId: auth.userId});
+        clearFrom();
+    }
 
     return (
         <form onSubmit={(event) => event.preventDefault()} className={classNames(className, styles.root)}>
             <h3 className={styles.title}>You can add your review</h3>
-            <div>
-                <label>Name</label>
-                <input className={styles.name} value={name} onChange={(event) => setName(event.target.value)} />
-            </div>
             <div>
                 <label>Text</label>
                 <textarea className={styles.text} value={text} onChange={(event) => setText(event.target.value)} />
@@ -33,7 +36,11 @@ export const ReviewForm = () => {
                 <label>Rating</label>
                 <Counter value={rating} increment={incrementRating} decrement={decrementRating} />
             </div>
-            <Button title={'Add review'} size={400}/>
+            <Button 
+                title={'Submit'}
+                size={400} 
+                disabled={isSubmitBtnDisabled}
+                onClick={handleFormSubmit}/>
             <Button title={'Clear'} size={400} onClick={clearFrom} />
         </form>
     )

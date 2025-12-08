@@ -1,6 +1,5 @@
 import { useCallback, useState } from "react";
-import { AuthContext } from "./authContext"
-import { USERS } from "../../constants/common";
+import { AuthContext } from "./authContext";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../../redux/entities/cart/slice";
 
@@ -11,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
     const toggleAuth = useCallback(() => {
         setAuth(currentAuth => {
             if (!currentAuth.isAuth) {
-                return {isAuth: true, username: USERS.ALEKSANDRA}
+                return {isAuth: true, username: 'Diana', userId: '20bed9b5-9c7b-4771-8221-75b74ed1904a'}
             }
             else {
                 dispatch(clearCart());
