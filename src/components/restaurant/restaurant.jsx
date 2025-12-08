@@ -1,12 +1,11 @@
 import classNames from "classnames";
-import { useSelector } from 'react-redux';
-import { selectRestaurantById } from '../../redux/entities/restaurants/slice';
 import styles from './restaurant.module.css';
 import { TabLink } from "../tabLink/tabLink";
 import { Outlet } from "react-router";
+import { useGetRestaurantByIdQuery } from "../../redux/services/api";
 
 export const Restaurant = ({id, className}) => {
-    const restaurant = useSelector(state => selectRestaurantById(state, id));
+    const restaurant = useGetRestaurantByIdQuery(id);
 
     if (!restaurant) return null;
     

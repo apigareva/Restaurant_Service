@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+/*import { createSlice } from "@reduxjs/toolkit";
 import { REQUEST_STATUS } from '../../../constants/requestStatus';
 
 export const requestSlice = createSlice({
@@ -30,4 +30,4 @@ export const requestSlice = createSlice({
             )
 });
 
-export const { selectStatusById } = requestSlice.selectors;
+export const { selectStatusById } = requestSlice.selectors;*/

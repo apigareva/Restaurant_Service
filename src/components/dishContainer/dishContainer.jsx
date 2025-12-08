@@ -1,13 +1,13 @@
 import { DishCounter } from "../dishCounter/dishCounter";
 import { useContext } from "react";
 import { AuthContext } from "../authContext/authContext";
-import { useSelector } from "react-redux";
-import { selectDishById } from "../../redux/entities/dishes/slice";
 import styles from './dishContainer.module.css';
+import { useGetDishByIdQuery } from "../../redux/services/api";
 
 export const DishContainer = ({dishId}) => {
     const {auth} = useContext(AuthContext);
-    const dish = useSelector(state => selectDishById(state, dishId));
+
+    const {data: dish} = useGetDishByIdQuery(dishId);
     const {name, price} = dish || {};
 
     return <div className={styles.root}>        

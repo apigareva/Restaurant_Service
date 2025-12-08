@@ -1,14 +1,17 @@
 import { Restaurants } from '../components/restaurants/restaurants.jsx';
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { getRestaurants } from "../redux/entities/restaurants/getRestaurants";
+import { useGetRestaurantsQuery } from '../redux/services/api.js';
+import { Preloader } from '../components/preloader/preloader.jsx';
 
 export const RestaurantsLayout = () => {
-    const dispatch = useDispatch();
+    const { data, isLoading, isError } = useGetRestaurantsQuery();
 
-    useEffect(() => {
-        dispatch(getRestaurants());
-    }, [dispatch]);
+    if (isLoading) {
+        return <Preloader />
+    }
 
-    return <Restaurants />
+    if (isError) {
+        return null;
+    }
+
+    return <Restaurants restaurants={data}/>
 }
